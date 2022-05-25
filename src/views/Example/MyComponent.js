@@ -12,6 +12,9 @@ class MyComponent extends React.Component {
             name: event.target.value
         })
     }
+    handleOnClickButton = () => {
+        alert('Clicked!')
+    }
 
     render(){
         
@@ -21,6 +24,7 @@ class MyComponent extends React.Component {
                 <div className="first">Hello from {this.state['name']}.</div>
                 <div className="second">I am {this.state.age} years old.</div>
                 <div className="third">My gender is {this.state.gender}.</div>
+                <button onClick={() => this.handleOnClickButton()}>Click me</button>
             </>
         )
     }
