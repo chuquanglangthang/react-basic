@@ -1,12 +1,20 @@
 import React from 'react'
 
 class MyComponent extends React.Component {
+
+    state = {
+        name: 'John',
+        age: 23,
+        gender: 'Male'
+    }
+
     render(){
-        let name = 'John'
+        
         return (
             <>
-                <p>Hello from {name}</p>
-                <p>Hello from {name}</p>
+                <div className="first">Hello from {this.state['name']}.</div>
+                <div className="second">I am {this.state.age} years old.</div>
+                <div className="third">My gender is {this.state.gender}.</div>
             </>
         )
     }
