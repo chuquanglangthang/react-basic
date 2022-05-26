@@ -1,5 +1,6 @@
 import React from 'react'
-import ChildComponent from './ChildComponent'
+// import ChildComponent from './ChildComponent'
+import FunctionComponent from './FunctionComponent'
 class MyComponent extends React.Component {
 
     state = {
@@ -12,19 +13,19 @@ class MyComponent extends React.Component {
             {id: 'a3', position: 'QA', salary: '1500$' }
         ]
     }
-    handleOnChangeName = (event) => {
-        this.setState({
-            name: event.target.value
-        })
-    }
-    handleOnClickButton = () => {
-        alert('Clicked!')
-    }
+    // handleOnChangeName = (event) => {
+    //     this.setState({
+    //         name: event.target.value
+    //     })
+    // }
+    // handleOnClickButton = () => {
+    //     alert('Clicked!')
+    // }
 
     render(){
         return (
             <>
-                <input 
+                {/* <input 
                     type="text" 
                     value={this.state.name} 
                     onChange={(event) => this.handleOnChangeName(event)} />
@@ -42,13 +43,20 @@ class MyComponent extends React.Component {
                 <button 
                     onClick={() => this.handleOnClickButton()}>
                     Click me
-                </button>
+                </button> */}
 
-                <ChildComponent 
+                {/* <ChildComponent 
                     name={this.state.name}
                     age={'22'}
                     address={'Hanoi'}
-                    jobs={this.state.jobs} />
+                    jobs={this.state.jobs} /> */}
+
+                <FunctionComponent 
+                    name={this.state.name}
+                    age={'22'}
+                    address={'Hanoi'}
+                    jobs={this.state.jobs}
+                />
             </>
         )
     }
