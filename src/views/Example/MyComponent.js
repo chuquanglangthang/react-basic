@@ -5,7 +5,12 @@ class MyComponent extends React.Component {
     state = {
         name: 'John',
         age: 23,
-        gender: 'Male'
+        gender: 'Male',
+        jobs: [
+            {id: 'a1', position: 'Developer', salary: '500$' },
+            {id: 'a2', position: 'Tester', salary: '350$' },
+            {id: 'a3', position: 'QA', salary: '1500$' }
+        ]
     }
     handleOnChangeName = (event) => {
         this.setState({
@@ -40,8 +45,10 @@ class MyComponent extends React.Component {
                 </button>
 
                 <ChildComponent 
-                    name={'1st child'}
-                    age={'22'} />
+                    name={this.state.name}
+                    age={'22'}
+                    address={'Hanoi'}
+                    jobs={this.state.jobs} />
             </>
         )
     }
