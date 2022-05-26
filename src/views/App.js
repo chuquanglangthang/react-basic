@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
-// import MyComponent from './Example/MyComponent';
-import MyForm from './Example/MyForm'
+import MyComponent from './Example/MyComponent';
+// import MyForm from './Example/MyForm'
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
         >
           Learn React
         </a> */}
-        {/* <MyComponent /> */}
-        <MyForm></MyForm>
+        <MyComponent />
+        {/* <MyForm></MyForm> */}
       </header>
     </div>
   );
