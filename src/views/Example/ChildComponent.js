@@ -10,6 +10,11 @@ class ChildComponent extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+    handleDelete = (item) => {
+        // alert("Deleted!")
+        // console.log(item.id)
+        this.props.deleteAJob(item.id)
+    }
     render() {
         let { jobs } = this.props
         let { showJobs } = this.state
@@ -26,9 +31,20 @@ class ChildComponent extends React.Component {
                                 {
                                     jobs.map((item, index) => {
                                         return (
-                                            <div key={item.id} className={`job-id-${item.id}`}>
-                                                {item.position} - {item.salary}
-                                            </div>
+                                                <div key={item.id} className={`job-id-${item.id}`}>
+                                                    <span>{item.position} - {item.salary}</span>
+                                                    <span>
+                                                        <button 
+                                                            type="button" 
+                                                            onClick={() => this.handleDelete(item)}>
+                                                            Delete
+                                                        </button> 
+                                                        {/* we don't have parameter inside () befor => 
+                                                        because we want to access to each item inside the jobs in parent
+                                                        component's state */}
+                                                    </span>
+                                                </div>
+
                                         )
                                     })
                                 }

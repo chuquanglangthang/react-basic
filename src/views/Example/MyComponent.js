@@ -15,6 +15,12 @@ class MyComponent extends React.Component {
             jobs: [...this.state.jobs, job] // add job into current state => update state
         })
     }
+    deleteAJob = (jobId) => {
+        console.log('Deleted job\'s id: ', jobId)
+        this.setState({
+            jobs: this.state.jobs.filter(job => job.id !== jobId)
+        })
+    }
     render(){
         return (
             <>
@@ -22,7 +28,8 @@ class MyComponent extends React.Component {
                     //passing a function to child component as props    
                     addNewJob={this.addNewJob} /> 
                 <ChildComponent 
-                    jobs={this.state.jobs} />
+                    jobs={this.state.jobs}
+                    deleteAJob={this.deleteAJob} />
             </>
         )
     }
