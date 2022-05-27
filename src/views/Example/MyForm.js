@@ -3,38 +3,57 @@ import React from 'react'
 class MyForm extends React.Component {
 
     state = {
-        firstName: '',
-        lastName: ''
+        position: '',
+        salary: ''
     }
-    handleChangeFirstName = (event) => {
+    // function
+    handleChangeJobPosition = (event) => {
         this.setState({
-            firstName: event.target.value,
+            position: event.target.value,
         }) 
     }
-    handleChangeLastName = (event) => {
+    handleChangeSalary = (event) => {
         this.setState({
-            lastName: event.target.value,
+            salary: event.target.value,
         }) 
     }
+    // get position and Salary info
     handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('>>> check data: ',this.state)
+        event.preventDefault(); // prevent reloading page when click submit button
+        console.log('Current state: ',this.state)
+
+        if (!this.state.position || !this.state.salary) {
+            alert('Required!')    
+            return
+        }
+
+        this.props.addNewJob({
+            id: Math.floor(Math.random() * 1000),
+            position: this.state.position,
+            salary: `${this.state.salary}$`
+        }) // receive function as props from parent
+        // because addNewJob is a function show we can call it through this.props
+
+        this.setState({
+            position: '',
+            salary: ''
+        }) // refresh state
     }
 
     render() {
         return (
             <>
                 <form>
-                    <label htmlFor="fname">First name:</label><br/> 
+                    <label htmlFor="fname">Job Position:</label><br/> 
                     <input 
                         type="text" 
-                        value={this.state.firstName} 
-                        onChange={(event) => this.handleChangeFirstName(event)}/><br/>
-                    <label htmlFor="">Last name:</label><br/> 
+                        value={this.state.position} 
+                        onChange={(event) => this.handleChangeJobPosition(event)}/><br/>
+                    <label htmlFor="">Salary:</label><br/> 
                     <input 
                         type="text" 
-                        value={this.state.lastName} 
-                        onChange={(event) => this.handleChangeLastName(event)} /><br/><br/>
+                        value={this.state.salary} 
+                        onChange={(event) => this.handleChangeSalary(event)} /><br/>
                     <input 
                         type="submit" 
                         value="Submit"

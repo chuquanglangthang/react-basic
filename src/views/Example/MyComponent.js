@@ -1,62 +1,28 @@
 import React from 'react'
 import ChildComponent from './ChildComponent'
-// import FunctionComponent from './FunctionComponent'
+import MyForm from './MyForm'
 class MyComponent extends React.Component {
-
     state = {
-        name: 'John',
-        age: 23,
-        gender: 'Male',
         jobs: [
             {id: 'a1', position: 'Developer', salary: '500$' },
             {id: 'a2', position: 'Tester', salary: '350$' },
             {id: 'a3', position: 'QA', salary: '1500$' }
         ]
     }
-    // handleOnChangeName = (event) => {
-    //     this.setState({
-    //         name: event.target.value
-    //     })
-    // }
-    // handleOnClickButton = () => {
-    //     alert('Clicked!')
-    // }
-
+    addNewJob = (job) => {
+        console.log('Input from child: ', job)
+        this.setState({
+            jobs: [...this.state.jobs, job] // add job into current state => update state
+        })
+    }
     render(){
         return (
             <>
-                {/* <input 
-                    type="text" 
-                    value={this.state.name} 
-                    onChange={(event) => this.handleOnChangeName(event)} />
-                <div 
-                    className="first">
-                    Hello from {this.state['name']}.
-                </div>
-                <div 
-                    className="second">
-                    I am {this.state.age} years old.
-                </div>
-                <div 
-                    className="third">
-                    My gender is {this.state.gender}.</div>
-                <button 
-                    onClick={() => this.handleOnClickButton()}>
-                    Click me
-                </button> */}
-
+                <MyForm
+                    //passing a function to child component as props    
+                    addNewJob={this.addNewJob} /> 
                 <ChildComponent 
-                    name={this.state.name}
-                    age={'22'}
-                    address={'Hanoi'}
                     jobs={this.state.jobs} />
-
-                {/* <FunctionComponent 
-                    name={this.state.name}
-                    age={'22'}
-                    address={'Hanoi'}
-                    jobs={this.state.jobs}
-                /> */}
             </>
         )
     }
