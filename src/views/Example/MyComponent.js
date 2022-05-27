@@ -1,6 +1,6 @@
 import React from 'react'
-// import ChildComponent from './ChildComponent'
-import FunctionComponent from './FunctionComponent'
+import ChildComponent from './ChildComponent'
+// import FunctionComponent from './FunctionComponent'
 class MyComponent extends React.Component {
 
     state = {
@@ -45,18 +45,18 @@ class MyComponent extends React.Component {
                     Click me
                 </button> */}
 
-                {/* <ChildComponent 
+                <ChildComponent 
                     name={this.state.name}
                     age={'22'}
                     address={'Hanoi'}
-                    jobs={this.state.jobs} /> */}
+                    jobs={this.state.jobs} />
 
-                <FunctionComponent 
+                {/* <FunctionComponent 
                     name={this.state.name}
                     age={'22'}
                     address={'Hanoi'}
                     jobs={this.state.jobs}
-                />
+                /> */}
             </>
         )
     }
