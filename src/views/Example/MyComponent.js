@@ -21,6 +21,12 @@ class MyComponent extends React.Component {
             jobs: this.state.jobs.filter(job => job.id !== jobId)
         })
     }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Component did update! ','previous state: ', prevState, ' ', 'current state: ', this.state)
+    }
+    componentDidMount() {
+        console.log('Component did mount!')
+    }
     render(){
         return (
             <>
