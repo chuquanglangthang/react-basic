@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
-import MyComponent from './Example/MyComponent';
+// import MyComponent from './Example/MyComponent';
+import TodoList from './Todos/TodoList';
 // import MyForm from './Example/MyForm'
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         >
           Learn React
         </a> */}
-        <MyComponent />
+        {/* <MyComponent /> */}
+        <TodoList />
       </header>
     </div>
   );
