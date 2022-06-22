@@ -5,15 +5,18 @@ class ChildComponent extends React.Component {
     state = {
         showJobs: false
     }
+    // onclick Show button, change the state from false into true
     handleShowHide = () => {
         this.setState({
             showJobs: !this.state.showJobs
         })
     }
+
+    // delete 
     handleDelete = (item) => {
         // alert("Deleted!")
         // console.log(item.id)
-        this.props.deleteAJob(item.id)
+        this.props.deleteAJob(item.id) // receive function as props and call it out through 'this' keyword
     }
     render() {
         let { jobs } = this.props

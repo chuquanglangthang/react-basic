@@ -2,6 +2,7 @@ import React from 'react'
 import ChildComponent from './ChildComponent'
 import MyForm from './MyForm'
 class MyComponent extends React.Component {
+    // each component has its own state
     state = {
         jobs: [
             {id: 'a1', position: 'Developer', salary: '500$' },
@@ -9,6 +10,7 @@ class MyComponent extends React.Component {
             {id: 'a3', position: 'QA', salary: '1500$' }
         ]
     }
+
     addNewJob = (job) => {
         console.log('Input from child: ', job)
         this.setState({
@@ -21,19 +23,26 @@ class MyComponent extends React.Component {
             jobs: this.state.jobs.filter(job => job.id !== jobId)
         })
     }
+
+    // Lifecycle of a react app
     componentDidUpdate(prevProps, prevState) {
         console.log('Component did update! ','previous state: ', prevState, ' ', 'current state: ', this.state)
     }
+
     componentDidMount() {
         console.log('Component did mount!')
     }
+
+    // function written above render(){} block code
+
     render(){
         return (
             <>
                 <MyForm
-                    //passing a function to child component as props    
+                    // passing a function to child component as props    
                     addNewJob={this.addNewJob} /> 
-                <ChildComponent 
+                <ChildComponent
+                    // passing props to child component 
                     jobs={this.state.jobs}
                     deleteAJob={this.deleteAJob} />
             </>
