@@ -36,8 +36,6 @@ function App() {
         draggable
         pauseOnHover
       />
-      {/* Same as */}
-      {/* <ToastContainer /> */}
     </div>
   );
 }
