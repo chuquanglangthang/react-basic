@@ -2,25 +2,30 @@
   .add-todo {
     margin-bottom: 20px;
   }
-  .todo-child {
-    width: 600px;
-    height: 40px;
-    border: 1px solid white;
-    font-size: 15px;
-    line-height: 40px;
-    text-align: left;
-    padding-left: 30px;
-    .button {
-      width: 200px;
-      text-align: right;
-      float: right;
-      padding-right: 10px;
+
+  .todo-list-content {
+    .todo-child {
+      width: 80vw;
+      height: 10vh;
+      border: 1px solid white;
+      font-size: 15px;
+      line-height: 10vh;
+      text-align: left;
+      padding-left: 30px;
+      span {
+        display: inline-block;
+        width: 30vw;
+        input {
+          width: 20vw;
+        }
+      }
+      .button {
+        width: 40vw;
+        text-align: right;
+        float: right;
+        padding-right: 20px;
+      }
     }
-  }
-  span {
-    display: inline-block;
-    width: 200px;
-    // margin-right: 10px;
   }
   button {
     border: none;
@@ -30,4 +35,3 @@
     cursor: pointer;
   }
 }
-  

@@ -1,30 +1,11 @@
 import React from 'react'
 import './TodoList.scss'
 import AddTodo from './AddTodo'
+import TodoContent from './TodoContent' 
 import { toast } from 'react-toastify';
 
-class TodoList extends React.Component {
 
-    state = {
-        listTodos: [
-            {
-                id: 'todo1',
-                title: 'Doing homework',
-            },
-            {
-                id: 'todo2',
-                title: 'Making videos',
-            },
-            {
-                id: 'todo3',
-                title: 'Fixing bugs',
-            },
-            {
-                id: 'todo4',
-                title: 'PLaying games',
-            },
-        ]
-    }
+class TodoList extends React.Component {
 
     addNewTodo = (todo) => {
         this.setState({
@@ -34,32 +15,17 @@ class TodoList extends React.Component {
         toast.success("Successfully added!");
     }
 
+    deleteTodo = (todo) => {
+        console.log(todo)
+    }
     render() {
-        let { listTodos } = this.state
         return (
             <>
                 <div className="todo-list-container">
                     <AddTodo
                         addNewTodo={this.addNewTodo} /> {/* passing function to child component as props` */}
-                    <div className="todo-list-content">
-                        {// render works list using map method
-                            /* must check if listTodos has element inside or not and check its length,
-                                otherwise, our map method does not run correctly
-                            */
-                            listTodos && listTodos.length > 0 &&
-                            listTodos.map((item, index) => {
-                                return (
-                                    <div className="todo-child" key={item.id}>
-                                        <span>{index + 1} - {item.title}</span>
-                                        <div className="button">
-                                            <button>Edit</button>
-                                            <button onClick={() => this.handleDelete}>Delete</button>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                    <TodoContent
+                        deleteTodo={this.deleteTodo} />
                 </div>
             </>
         )

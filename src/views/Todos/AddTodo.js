@@ -11,7 +11,7 @@ class AddTodo extends React.Component {
             title: event.target.value
         })
     }
-    handleAddToDo = (item) => {
+    handleAddToDo = () => {
         // pass todo from child component to parent component
 
         if (!this.state.title) {
