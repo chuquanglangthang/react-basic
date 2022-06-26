@@ -1,0 +1,14 @@
+.list-users-container {
+    font-size: 32px;
+    .list-users-title {
+
+    }
+    .list-users-content {
+        .list-users-child {
+            border: 1px solid grey;
+            margin: 3px 0;
+            text-align: left;
+            line-height: 1.5em;
+        }
+    }
+}

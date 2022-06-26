@@ -88,8 +88,8 @@ class TodoContent extends React.Component {
         let { listTodos } = this.state
         let isEmptyObj = Object.keys(this.state.listTodosToEdit).length === 0
         let { listTodosToEdit } = this.state
-        console.log("check empty obj: ", isEmptyObj)
-        console.log(listTodosToEdit)
+        // console.log("check empty obj: ", isEmptyObj)
+        // console.log(listTodosToEdit)
         return (
             <>
                 <div className="todo-list-content">

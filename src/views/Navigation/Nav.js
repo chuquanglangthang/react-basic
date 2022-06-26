@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.scss";
-import { Link, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 class Nav extends React.Component {
     render() {
@@ -10,6 +10,7 @@ class Nav extends React.Component {
                     <NavLink to="/" activeClassName="active" exact={true}>Home</NavLink>
                     <NavLink to="/todo" activeClassName="active">Todos</NavLink>
                     <NavLink to="/about" activeClassName="active">About</NavLink>
+                    <NavLink to="/user" activeClassName="active">User</NavLink>
                 </div>
             </>
         );
