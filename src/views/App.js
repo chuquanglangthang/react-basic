@@ -8,6 +8,7 @@ import Nav from "./Navigation/Nav";
 import Home from "./Example/Home";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import ListUsers from "./Users/ListUsers";
+import DetailUser from "./Users/DetailUser";
 
 function App() {
   return (
@@ -26,8 +27,11 @@ function App() {
             <Route path="/about">
               <MyComponent />
             </Route>
-            <Route path="/user">
+            <Route path="/user" exact>
               <ListUsers />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
         </header>

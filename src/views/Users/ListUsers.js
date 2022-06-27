@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 import './ListUsers.scss'
 
 class ListUsers extends React.Component {
@@ -16,6 +17,11 @@ class ListUsers extends React.Component {
         // console.log(this.state.listUsers)  
     }
 
+    handleViewDetailUser = (userId) => {
+        // console.log(user)
+        this.props.history.push(`/user/${userId}`)
+    }
+
     render() {
         let { listUsers } = this.state
         return (
@@ -28,7 +34,7 @@ class ListUsers extends React.Component {
                         listUsers && listUsers.length > 0 &&
                         listUsers.map((singleUser, index) => {
                             return (
-                                <div className="list-users-child" key={singleUser.id}>
+                                <div className="list-users-child" key={singleUser.id} onClick={() => this.handleViewDetailUser(singleUser.id)}>
                                     <span>
                                         {index + 1}: {singleUser.first_name} {singleUser.last_name}
                                     </span>
@@ -42,4 +48,4 @@ class ListUsers extends React.Component {
     }
 }
 
-export default ListUsers
+export default withRouter(ListUsers)
