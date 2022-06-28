@@ -1,5 +1,5 @@
 import React from 'react'
-import './demo.scss'
+// import './demo.scss'
 class ChildComponent extends React.Component {
 
     state = {
